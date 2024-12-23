@@ -1,0 +1,55 @@
+.useFade {
+  box-sizing: border-box;
+  opacity: 0%;
+  transition: opacity 0.2s ease-in-out;
+}
+.useFade.in { opacity: 100%; }
+.useFade.out { opacity: 0%; }
+
+.moodButtonPanelContainer {
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #282828;
+  padding: 25px;
+  border-radius: 50px;
+}
+
+.moodButtonPanelLabelDiv {
+  display: flex;
+  position: relative;
+  left: 50%;
+  transform: translate(-20%, -15%);
+}
+
+.moodButtonPanelLabel {
+  font-family: 'Monofur';
+  font-weight: bold;
+  font-size: 64px;
+  -webkit-text-stroke: 4px #000;
+  user-select: none;
+}
+
+.moodButton {
+  height: 200px;
+  width: 200px;
+  margin: 25px;
+  border: 5px solid #000;
+  border-radius: 50px;
+  font-family: 'OpenDyslexic';
+  font-size: 64px;
+  user-select: none;
+  transition:
+    border 0.2s ease-in-out,
+    transform 0.1s ease-in-out;
+}
+
+.moodButton.active:hover {
+  transform: scale(125%);
+}
+
+.moodButton.selected {
+  border: 5px solid #fff;
+}
