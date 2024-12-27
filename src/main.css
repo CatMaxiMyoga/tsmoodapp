@@ -46,3 +46,10 @@
   font-weight: bold;
   font-style: italic;
 }
+
+@font-face {
+  font-family: 'HeavyData';
+  src: url('./assets/fonts/HeavyData.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

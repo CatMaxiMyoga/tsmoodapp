@@ -1,0 +1,60 @@
+.useFade {
+  box-sizing: border-box;
+  opacity: 0%;
+  transition: opacity 0.2s ease-in-out;
+}
+.useFade.in { opacity: 100%; }
+.useFade.out { opacity: 0%; }
+
+.descriptionEntryContainer {
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #282828;
+  padding: 25px;
+  border-radius: 50px;
+}
+
+.descriptionEntryLabelDiv {
+  display: flex;
+  position: relative;
+  transform: translate(40px, -10px);
+}
+
+.descriptionEntryLabel {
+  font-family: 'Monofur';
+  font-weight: bold;
+  font-size: 64px;
+  -webkit-text-stroke: 4px #000;
+  user-select: none;
+}
+
+.descriptionEntry {
+  font-family: 'OpenDyslexic';
+  font-size: 24px;
+  color: #aaaaaa;
+  resize: none;
+  background-color: inherit;
+  border: none;
+  outline: none;
+}
+
+.descriptionEntryConfirm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Monofur';
+  font-size: 32px;
+  height: 50px;
+  width: 200px;
+  border-radius: inherit;
+  background-color: #383838;
+  color: #bbbbbb;
+  margin: 25px 0 0 0;
+  user-select: none;
+}

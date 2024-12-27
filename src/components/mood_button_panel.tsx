@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import './mood_button_panel.css'
 
-const MoodButtonPanel = () => {
+interface Props {
+  setMood: React.Dispatch<React.SetStateAction<number>>;
+  setBg: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const MoodButtonPanel = ({ setMood, setBg }: Props) => {
   const colors: string[] = [
     "#00ff00",
     "#b2ff00",
@@ -11,12 +15,12 @@ const MoodButtonPanel = () => {
     "#ff0000"
   ];
 
-  const bgcolors: string[] = [ // TODO make this shit work, then this component is done
-    "#003300",
-    "#203300",
-    "#333300",
-    "#332000",
-    "#330000"
+  const bgcolors: string[] = [
+    "#002200",
+    "#182200",
+    "#222200",
+    "#221800",
+    "#220000"
   ];
 
   const buttons: string[] = [
@@ -29,29 +33,25 @@ const MoodButtonPanel = () => {
 
   const [selected, setSelected] = useState(-1);
   const [active, setActive] = useState(-1);
-  const navigate = useNavigate();
-  const location = useLocation();
 
-  const handleClick = (i: number) => {
+  const handleClick = (i: number, bg: string) => {
     if (active) {
       setSelected(i);
       setActive(0);
+      setBg(bg);
       
-      const searchParams = new URLSearchParams(location.search);
-      searchParams.set('mood', String(i));
-  
-      setTimeout(() => navigate(`?${searchParams.toString()}`), 200);
+      setTimeout(() => setMood(5 - i), 200);
     }
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => setActive(1), 10);
-    return () => clearTimeout(timer);
+    const timeout = setTimeout(() => setActive(1), 10);
+    return () => clearTimeout(timeout);
   }, []);
 
   return <div 
     className={`moodButtonPanelContainer useFade${
-      active === 1 ? " in" : active === 0 ? " out" : ""
+      active === 1 ? " in" : !active ? " out" : ""
     }`}
     style={{ display: 'flex', flexDirection: 'column' }}
   >
@@ -68,7 +68,7 @@ const MoodButtonPanel = () => {
         }${
           active === 1 ? " active" : ""
         }`}
-        onClick={() => handleClick(i)}
+        onClick={() => handleClick(i, bgcolors[i])}
         style={{ backgroundColor: colors[i] }}
       > {button} </button>)}
     </div>

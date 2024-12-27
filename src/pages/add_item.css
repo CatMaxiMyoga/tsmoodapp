@@ -1,0 +1,12 @@
+.addItemDateLabel {
+  display: flex;
+  position: fixed;
+  left: 50%;
+  top: 5%;
+  transform: translateX(-50%);
+  font-family: 'HeavyData';
+  font-size: 64px;
+  color: #828282;
+  -webkit-text-stroke: 2px #000;
+  user-select: none;
+}
